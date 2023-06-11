@@ -1,13 +1,13 @@
 package com.pruetec.manj.sanitas.dto;
 
-public class ApiResponseDto<BigDecimal> {
+public class ApiResponseDto<T> {
 
 	public static final String OK = "ok";
 	public static final String KO = "ko";
 	private String status;
 	private Integer code;
 	private String message;
-	private BigDecimal result;
+	private T result;
 
 	public ApiResponseDto(String status, Integer code, String message) {
 		super();
@@ -16,7 +16,7 @@ public class ApiResponseDto<BigDecimal> {
 		this.message = message;
 	}
 
-	public ApiResponseDto(String status, Integer code, String message, BigDecimal result) {
+	public ApiResponseDto(String status, Integer code, String message, T result) {
 		super();
 		this.status = status;
 		this.code = code;
@@ -48,11 +48,11 @@ public class ApiResponseDto<BigDecimal> {
 		this.message = message;
 	}
 
-	public BigDecimal getResult() {
+	public T getResult() {
 		return result;
 	}
 
-	public void setResult(BigDecimal result) {
+	public void setResult(T result) {
 		this.result = result;
 	}
 

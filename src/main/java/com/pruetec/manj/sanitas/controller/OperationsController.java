@@ -19,15 +19,18 @@ public class OperationsController {
 
 	@Autowired
 	OperationsService service;
-	
+
 	@GetMapping("/")
-	public ResponseEntity<ApiResponseDto<BigDecimal>> operations (@RequestParam(value= "operador1", required= true) BigDecimal operador1,
+	public ResponseEntity<ApiResponseDto<?>> operations (@RequestParam(value= "operando1", required= true) BigDecimal operando1,
 			@RequestParam(value= "operador", required= true) String operador,
-			@RequestParam(value= "operador2", required= true) BigDecimal operador2) {
-		service.operaciones();
-		BigDecimal decimal = new BigDecimal(0.01);
-		return new ResponseEntity<>(new ApiResponseDto<BigDecimal>(ApiResponseDto.OK, HttpStatus.OK.value(), "Resultado de la operacion.", decimal), HttpStatus.OK);
+			@RequestParam(value= "operando2", required= true) BigDecimal operando2) {
+		try {
+			BigDecimal resultado = service.operations(operando1, operador, operando2);
+			return new ResponseEntity<>(new ApiResponseDto<BigDecimal>(ApiResponseDto.OK, HttpStatus.OK.value(), "Resultado de la operacion.", resultado), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(new ApiResponseDto<String>(ApiResponseDto.KO, HttpStatus.BAD_REQUEST.value(), "Error en operacion. ", e.getMessage()), HttpStatus.OK);
+		}
+		
 	}
-	
 	
 }
