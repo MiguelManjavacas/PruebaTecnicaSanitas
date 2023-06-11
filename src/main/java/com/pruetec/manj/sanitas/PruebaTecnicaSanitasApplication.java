@@ -1,4 +1,4 @@
-package com.pruetec.manj;
+package com.pruetec.manj.sanitas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

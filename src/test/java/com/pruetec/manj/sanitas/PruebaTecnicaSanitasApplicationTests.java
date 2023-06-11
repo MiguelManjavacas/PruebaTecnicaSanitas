@@ -1,4 +1,4 @@
-package com.pruetec.manj;
+package com.pruetec.manj.sanitas;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
