@@ -13,14 +13,27 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pruetec.manj.sanitas.dto.ApiResponseDto;
 import com.pruetec.manj.sanitas.service.OperationsService;
 
+/**
+ * 
+ * @author Miguel Angel Manjavacas
+ * Controlador que gestiona la llamada GET de la API.
+ *
+ */
 @RestController
-@RequestMapping("operations")
+@RequestMapping("api")
 public class OperationsController {
 
 	@Autowired
 	OperationsService service;
 
-	@GetMapping("/")
+	/**
+	 * Metodo que gestiona la operacion GET de la aplicacion.
+	 * @param BigDecimal operando1
+	 * @param String operador
+	 * @param BigDecimal operando2
+	 * @return ResponseEntity<ApiResponseDto<?>>
+	 */
+	@GetMapping("/operate")
 	public ResponseEntity<ApiResponseDto<?>> operations (@RequestParam(value= "operando1", required= true) BigDecimal operando1,
 			@RequestParam(value= "operador", required= true) String operador,
 			@RequestParam(value= "operando2", required= true) BigDecimal operando2) {
